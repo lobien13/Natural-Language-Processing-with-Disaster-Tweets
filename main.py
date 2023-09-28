@@ -11,10 +11,6 @@ import seaborn as sns
 # Cargar los datos de train
 train_data = pd.read_csv('train.csv')
 
-# Etiquetar tweets como 1 si contienen palabras clave de desastres naturales, de lo contrario, etiquetar como 0
-keywords = ['fire', 'flood', 'earthquake', 'hurricane', 'tornado', 'storm', 'volcano', 'tsunami', 'wildfire', 'avalanche', 'blizzard', 'drought', 'heat wave', 'hailstorm']
-train_data['target'] = train_data['text'].apply(lambda x: 1 if any(keyword in x.lower() for keyword in keywords) else 0)
-
 # Dividir los datos en entrenamiento y prueba
 X_train, X_test, y_train, y_test = train_test_split(train_data['text'], train_data['target'], test_size=0.3, random_state=42)
 
