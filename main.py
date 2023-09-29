@@ -98,5 +98,3 @@ roc_auc = auc(fpr, tpr)
 plt.figure()
 plt.plot(fpr, tpr, color='darkorange', lw=2, label='ROC curve (area = %0.2f)' % roc_auc)
 plt.show()
-
-
