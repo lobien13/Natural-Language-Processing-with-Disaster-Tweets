@@ -80,17 +80,6 @@ print(classification_report(y_test, y_pred_binary))
 submission = pd.DataFrame({'id': test_data['id'], 'target': test_pred_binary.flatten()})
 submission.to_csv('submission.csv', index=False)
 
-# Mostrar la matriz de confusión
-cm = confusion_matrix(y_test, y_pred_binary)
-ax = plt.subplot()
-sns.heatmap(cm, annot=True, ax=ax, cmap='Blues', fmt='g')
-ax.set_xlabel('Predicted labels')
-ax.set_ylabel('True labels')
-ax.set_title('Confusion Matrix')
-ax.xaxis.set_ticklabels(['No disaster', 'Disaster'])
-ax.yaxis.set_ticklabels(['No disaster', 'Disaster'])
-plt.show()
-
 # Mostrar la curva ROC
 from sklearn.metrics import roc_curve, auc
 fpr, tpr, thresholds = roc_curve(y_test, y_pred)
